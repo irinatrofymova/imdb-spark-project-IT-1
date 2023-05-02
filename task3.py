@@ -14,10 +14,7 @@ spark_session = (SparkSession.builder
 path='d:/IRINA/MyPython/imdb-spark-project-IT-1/data/title.basics.tsv.gz'
 schema3=s.schema_title_basics()
 
-
 tabl3_df = rw.reading(spark_session, path, schema3)
-#tabl3_df.show()
-#tabl3_df.printSchema()
 
 rez_task3_df=tabl3_df.select('primaryTitle', 'runtimeMinutes').filter(f.col('runtimeMinutes') > 120)
 rez_task3_df.show(truncate=False)

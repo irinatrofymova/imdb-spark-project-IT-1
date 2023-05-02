@@ -14,10 +14,8 @@ spark_session = (SparkSession.builder
 path='d:/IRINA/MyPython/imdb-spark-project-IT-1/data/name.basics.tsv.gz'
 schema2=s.schema_name_basics()
 
-
 tabl2_df = rw.reading(spark_session, path, schema2)
-tabl2_df.show()
-#tabl2_df.printSchema()
+#tabl2_df.show()
 
 rez_task2_df=tabl2_df.select('primaryName', 'birthYear').filter(f.col('birthYear') < 1901)
 rez_task2_df.show()
