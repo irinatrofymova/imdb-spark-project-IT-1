@@ -1,3 +1,6 @@
+'''
+The file contains functions for generating dataframe schemas.
+'''
 from pyspark import SparkConf
 from pyspark.sql import SparkSession, dataframe, Window
 import pyspark.sql.types as t
@@ -62,5 +65,12 @@ def schema_title_ratings():
     schema=t.StructType([t.StructField('tconst', t.StringType(), True),
                      t.StructField('averageRating', t.FloatType(), True),
                      t.StructField('numVotes', t.IntegerType(), True),
+                     ])
+    return schema
+
+def schema_title_crew():
+    schema=t.StructType([t.StructField('tconst', t.StringType(), True),
+                     t.StructField('directors', t.StringType(), True),
+                     t.StructField('writers', t.StringType(), True),
                      ])
     return schema
