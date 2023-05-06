@@ -20,8 +20,13 @@ def reading(spark_session, path_to_file, schemaDF):
                                       schema=schemaDF)
     return from_file_df
 
-#def writing(spark_session, path_to_file, to_file_df):
-#    header=True
-#    mode="owerwrite"
-#    to_file_df.write.csv(path_to_file, header, mode)
-#    return
+def writing(spark_session, path_to_file, to_file_df):
+    '''
+    Writes data to file.
+    :param spark_session: SparkSession
+    :param path_to_file: Path to the file where the information should be written
+    :param to_file_df: dataframe
+    :return:
+    '''
+    to_file_df.write.csv(path_to_file, header=True, mode='overwrite')
+    return
